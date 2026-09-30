@@ -31,7 +31,6 @@ public class SocialMediaController {
     this.messageService = messageService;
   }
 
-  // TODO: Requirement 1
   @PostMapping("register")
   public ResponseEntity<Account> registerUser(@RequestBody Account account){
     return new ResponseEntity<>(accountService.createUser(account), HttpStatus.OK);
@@ -39,8 +38,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 2
   @PostMapping("login")
-  public ResponseEntity<String> loginUser(@RequestBody Account account){
-    return ResponseEntity.status(HttpStatus.OK).body("Success");
+  public ResponseEntity<Account> loginUser(@RequestBody Account account){
+    return new ResponseEntity<>(accountService.loginUser(account), HttpStatus.OK);
   }
 
   // TODO: Requirement 3

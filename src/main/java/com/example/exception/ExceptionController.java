@@ -14,4 +14,8 @@ public class ExceptionController {
   @ExceptionHandler(InvalidUsernameOrPasswordException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String handleInvalidUsernameOrPassword(InvalidUsernameOrPasswordException ex){return ex.getMessage();}
+
+  @ExceptionHandler(InvalidCredentialsException.class)
+  @ResponseStatus(HttpStatus.UNAUTHORIZED)
+  public String handleInvalidCredentials(InvalidCredentialsException ex){return ex.getMessage();}
 }
