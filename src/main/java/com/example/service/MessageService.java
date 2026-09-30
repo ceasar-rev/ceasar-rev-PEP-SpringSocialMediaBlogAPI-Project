@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Message;
@@ -26,6 +28,10 @@ public class MessageService {
     accountRepository.findById(message.getPostedBy()).orElseThrow(() -> new UserDoesntExistException("User not found."));
     messageRepository.save(message);
     return messageRepository.findByPostedByAndMessageText(message.getPostedBy(), message.getMessageText()).orElse(null);
+  }
+
+  public List<Message> getAllMessages(){
+    return messageRepository.findAll();
   }
 
   // helper function below 

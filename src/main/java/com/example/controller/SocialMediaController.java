@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,7 +43,6 @@ public class SocialMediaController {
     return new ResponseEntity<>(accountService.loginUser(account), HttpStatus.OK);
   }
 
-  // TODO: Requirement 3
   @PostMapping("messages")
   public ResponseEntity<Message> postMessage(@RequestBody Message message){
     return new ResponseEntity<>(messageService.createMessage(message), HttpStatus.OK);
@@ -49,8 +50,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 4
   @GetMapping("messages")
-  public ResponseEntity<String> getAllMessages(@RequestBody Message message){
-    return ResponseEntity.status(HttpStatus.OK).body("Success");
+  public ResponseEntity<List<Message>> getAllMessages(@RequestBody Message message){
+    return new ResponseEntity<>(messageService.getAllMessages(), HttpStatus.OK);
   }
 
   // TODO: Requirement 5
