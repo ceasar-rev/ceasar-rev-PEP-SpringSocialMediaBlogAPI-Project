@@ -54,7 +54,7 @@ public class SocialMediaController {
   }
 
   // TODO: Requirement 5
-  @PostMapping("messages/{messageId}")
+  @GetMapping("messages/{messageId}")
   public ResponseEntity<Message> getMessageById(@PathVariable int messageId){
     return new ResponseEntity<>(messageService.getMessageById(messageId), HttpStatus.OK);
   }
