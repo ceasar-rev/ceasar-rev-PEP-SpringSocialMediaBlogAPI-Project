@@ -31,7 +31,7 @@ public class AccountService {
     return accountRepository.findByUsernameAndPassword(account.getUsername(), account.getPassword()).orElseThrow(() -> new InvalidCredentialsException("Username or password is incorrect."));
   }
 
-  private boolean doesUsernameExist(String username){
+  public boolean doesUsernameExist(String username){
     Account acc = accountRepository.findByUsername(username).orElse(null);
     if (acc != null){
       return true;
