@@ -58,7 +58,6 @@ public class SocialMediaController {
     return new ResponseEntity<>(messageService.getMessageById(messageId), HttpStatus.OK);
   }
 
-  // TODO: Requirement 6
   @DeleteMapping("messages/{messageId}")
   public ResponseEntity<Integer> deleteMessageById(@PathVariable int messageId){
     return new ResponseEntity<>(messageService.deleteMessageById(messageId), HttpStatus.OK);

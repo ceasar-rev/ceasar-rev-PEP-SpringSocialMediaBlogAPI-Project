@@ -47,6 +47,14 @@ public class MessageService {
     return null;
   }
 
+  public Integer patchMessageById(int id, String text){
+    Message messageToPatch = getMessageById(id);
+    if (messageToPatch != null){
+      // TODO
+    }
+    return null;
+  }
+
   // helper function below 
   private boolean isMessageTextValid(String messageText){
     if(messageText == "" || messageText.length() > 255){
