@@ -53,7 +53,6 @@ public class SocialMediaController {
     return new ResponseEntity<>(messageService.getAllMessages(), HttpStatus.OK);
   }
 
-  // TODO: Requirement 5
   @GetMapping("messages/{messageId}")
   public ResponseEntity<Message> getMessageById(@PathVariable int messageId){
     return new ResponseEntity<>(messageService.getMessageById(messageId), HttpStatus.OK);
@@ -61,8 +60,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 6
   @DeleteMapping("messages/{messageId}")
-  public ResponseEntity<String> deleteMessageById(@PathVariable int messageId){
-    return ResponseEntity.status(HttpStatus.OK).body("Success");
+  public ResponseEntity<Integer> deleteMessageById(@PathVariable int messageId){
+    return new ResponseEntity<>(messageService.deleteMessageById(messageId), HttpStatus.OK);
   }
 
   // TODO: Requirement 7

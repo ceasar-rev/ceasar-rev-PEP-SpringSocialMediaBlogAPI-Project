@@ -38,6 +38,15 @@ public class MessageService {
     return messageRepository.findById(id).orElse(null);
   }
 
+  public int deleteMessageById(int id){
+    Message messageToDelete = getMessageById(id);
+    if (messageToDelete != null){
+      messageRepository.deleteById(id);
+      return 1;
+    }
+    return 0;
+  }
+
   // helper function below 
   private boolean isMessageTextValid(String messageText){
     if(messageText == "" || messageText.length() > 255){
