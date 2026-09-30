@@ -48,7 +48,6 @@ public class SocialMediaController {
     return new ResponseEntity<>(messageService.createMessage(message), HttpStatus.OK);
   }
 
-  // TODO: Requirement 4
   @GetMapping("messages")
   public ResponseEntity<List<Message>> getAllMessages(){
     return new ResponseEntity<>(messageService.getAllMessages(), HttpStatus.OK);
@@ -56,8 +55,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 5
   @PostMapping("messages/{messageId}")
-  public ResponseEntity<String> getMessageById(@PathVariable int messageId){
-    return ResponseEntity.status(HttpStatus.OK).body("Success");
+  public ResponseEntity<Message> getMessageById(@PathVariable int messageId){
+    return new ResponseEntity<>(messageService.getMessageById(messageId), HttpStatus.OK);
   }
 
   // TODO: Requirement 6

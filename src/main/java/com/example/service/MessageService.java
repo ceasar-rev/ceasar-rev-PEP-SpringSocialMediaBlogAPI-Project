@@ -34,6 +34,10 @@ public class MessageService {
     return messageRepository.findAll();
   }
 
+  public Message getMessageById(int id){
+    return messageRepository.findById(id).orElse(null);
+  }
+
   // helper function below 
   private boolean isMessageTextValid(String messageText){
     if(messageText == "" || messageText.length() > 255){
