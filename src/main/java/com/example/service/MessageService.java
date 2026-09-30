@@ -38,13 +38,13 @@ public class MessageService {
     return messageRepository.findById(id).orElse(null);
   }
 
-  public int deleteMessageById(int id){
+  public Integer deleteMessageById(int id){
     Message messageToDelete = getMessageById(id);
     if (messageToDelete != null){
       messageRepository.deleteById(id);
       return 1;
     }
-    return 0;
+    return null;
   }
 
   // helper function below 
