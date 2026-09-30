@@ -33,8 +33,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 1
   @PostMapping("register")
-  public ResponseEntity<String> registerUser(@RequestBody Account account){
-    return ResponseEntity.status(HttpStatus.OK).body("Success");
+  public ResponseEntity<Account> registerUser(@RequestBody Account account){
+    return new ResponseEntity<>(accountService.createUser(account), HttpStatus.OK);
   }
 
   // TODO: Requirement 2
