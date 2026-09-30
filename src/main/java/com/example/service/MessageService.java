@@ -31,7 +31,7 @@ public class MessageService {
   }
 
   public List<Message> getAllMessages(){
-    return (List<Message>)messageRepository.findAll();
+    return messageRepository.findAll();
   }
 
   // helper function below 

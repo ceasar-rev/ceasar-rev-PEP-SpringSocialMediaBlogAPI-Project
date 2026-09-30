@@ -50,7 +50,7 @@ public class SocialMediaController {
 
   // TODO: Requirement 4
   @GetMapping("messages")
-  public ResponseEntity<List<Message>> getAllMessages(@RequestBody Message message){
+  public ResponseEntity<List<Message>> getAllMessages(){
     return new ResponseEntity<>(messageService.getAllMessages(), HttpStatus.OK);
   }
 
