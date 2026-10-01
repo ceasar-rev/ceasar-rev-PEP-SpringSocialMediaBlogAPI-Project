@@ -58,6 +58,10 @@ public class MessageService {
     throw new InvalidMessagePatchRequestException("Message patch request failed.");
   }
 
+  public List<Message> getAllMessagesFromUser(int id){
+    return messageRepository.findAllByPostedBy(id).orElse(null);
+  }
+
   // helper function below 
   private boolean isMessageTextValid(String messageText){
     if(messageText.isBlank() || messageText.length() > 255){
