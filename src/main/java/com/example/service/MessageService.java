@@ -60,7 +60,7 @@ public class MessageService {
 
   // helper function below 
   private boolean isMessageTextValid(String messageText){
-    if(messageText == "" || messageText.length() > 255){
+    if(messageText.isBlank() || messageText.length() > 255){
       return false;
     }
     return true;
