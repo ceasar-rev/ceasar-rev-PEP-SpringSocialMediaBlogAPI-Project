@@ -65,8 +65,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 7
   @PatchMapping("messages/{messageId}")
-  public ResponseEntity<Integer> patchMessageById(@PathVariable int messageId, @RequestBody String messageText){
-    System.out.println("Value of messageText from Request Body: " + messageText);
+  public ResponseEntity<Integer> patchMessageById(@PathVariable int messageId, @RequestBody Message message){
+    String messageText = message.getMessageText();
     return new ResponseEntity<>(messageService.patchMessageById(messageId, messageText), HttpStatus.OK);
   }
 
