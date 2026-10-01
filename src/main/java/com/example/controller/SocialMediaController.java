@@ -69,7 +69,6 @@ public class SocialMediaController {
     return new ResponseEntity<>(messageService.patchMessageById(messageId, messageText), HttpStatus.OK);
   }
 
-  // TODO: Requirement 8
   @GetMapping("accounts/{accountId}/messages")
   public ResponseEntity<List<Message>> getAllMessagesFromUser(@PathVariable int accountId){
     return new ResponseEntity<>(messageService.getAllMessagesFromUser(accountId), HttpStatus.OK);
