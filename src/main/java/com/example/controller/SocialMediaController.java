@@ -65,8 +65,8 @@ public class SocialMediaController {
 
   // TODO: Requirement 7
   @PatchMapping("messages/{messageId}")
-  public ResponseEntity<String> patchMessageById(@PathVariable int messageId){
-    return ResponseEntity.status(HttpStatus.OK).body("Success");
+  public ResponseEntity<Integer> patchMessageById(@PathVariable int messageId, @RequestBody String messageText){
+    return new ResponseEntity<>(messageService.patchMessageById(messageId, messageText), HttpStatus.OK);
   }
 
   // TODO: Requirement 8

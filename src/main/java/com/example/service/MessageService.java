@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Message;
+import com.example.exception.InvalidMessagePatchRequestException;
 import com.example.exception.InvalidMessageTextException;
 import com.example.exception.UserDoesntExistException;
 import com.example.exception.InvalidMessageTextException;
@@ -47,12 +48,14 @@ public class MessageService {
     return null;
   }
 
-  public Integer patchMessageById(int id, String text){
+  public Integer patchMessageById(int id, String text) throws InvalidMessagePatchRequestException{
     Message messageToPatch = getMessageById(id);
-    if (messageToPatch != null){
-      // TODO
+    if (messageToPatch != null && isMessageTextValid(text)){
+      messageToPatch.setMessageText(text);
+      messageRepository.save(messageToPatch);
+      return 1;
     }
-    return null;
+    throw new InvalidMessagePatchRequestException("Message patch request failed.");
   }
 
   // helper function below 

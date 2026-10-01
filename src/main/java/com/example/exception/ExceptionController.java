@@ -26,4 +26,8 @@ public class ExceptionController {
   @ExceptionHandler(UserDoesntExistException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String handleUserDoesntExist(UserDoesntExistException ex){return ex.getMessage();}
+
+  @ExceptionHandler(InvalidMessagePatchRequestException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public String handleInvalidMessagePatchRequest(InvalidMessagePatchRequestException ex){return ex.getMessage();}
 }
